@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Sell on Chukua Deal | Coming Soon</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f5f6;
+  color: #1e293b;
+}
+
+/* Navbar - Same as Main Site */
+.navbar {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+.logo-text {
+  background: linear-gradient(135deg, #0f172a, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.logo-text span {
+  color: #f97316;
+  background: none;
+}
+
+.sell-btn {
+  background: #f97316;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 450px;
+  position: relative;
+}
+.search-container form {
+  display: flex;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.search-container input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  font-size: 0.9rem;
+  outline: none;
+  background: transparent;
+}
+.search-container button {
+  background: none;
+  border: none;
+  padding: 0 1.2rem;
+  color: #f97316;
+  cursor: pointer;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.nav-icons a {
+  color: #475569;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://placehold.co/1920x400?text=Pattern') repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease;
+}
+.hero-section p {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+/* Coming Soon Banner */
+.coming-soon-banner {
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+  border-left: 4px solid #f97316;
+  padding: 1.2rem;
+  border-radius: 16px;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: slideIn 0.5s ease;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.coming-soon-banner i {
+  font-size: 2.5rem;
+  color: #f97316;
+}
+.coming-soon-banner .text {
+  flex: 1;
+}
+.coming-soon-banner .text strong {
+  color: #f97316;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.coming-soon-banner .text p {
+  color: #78350f;
+  font-size: 0.85rem;
+}
+.coming-soon-badge {
+  background: #f97316;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  max-width: 450px;
+  width: 90%;
+  border-radius: 24px;
+  padding: 2rem;
+  text-align: center;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-icon {
+  font-size: 4rem;
+  color: #f97316;
+  margin-bottom: 1rem;
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.modal-content p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.modal-close {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(249,115,22,0.3);
+}
+
+/* Main Container */
+.main-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Two Column Layout */
+.two-columns {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+.right-column {
+  flex: 0.8;
+  min-width: 280px;
+}
+
+/* Feature Cards */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f8;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+}
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+}
+.feature-icon i {
+  font-size: 2rem;
+  color: white;
+}
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+.feature-card p {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Stats Section */
+.stats-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid #eef2f8;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-item h2 {
+  font-size: 2rem;
+  color: #f97316;
+  font-weight: 800;
+}
+.stat-item p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Right Column - Contact Form */
+.contact-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 100px;
+  border: 1px solid #eef2f8;
+}
+.contact-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+.contact-card p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  transition: 0.2s;
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+}
+.whatsapp-btn {
+  width: 100%;
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.2s;
+  margin-top: 0.5rem;
+}
+.whatsapp-btn:hover {
+  background: #128C7E;
+  transform: scale(1.02);
+}
+.or-divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+}
+.email-btn {
+  width: 100%;
+  background: white;
+  color: #f97316;
+  border: 2px solid #f97316;
+  padding: 0.9rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+.email-btn:hover {
+  background: #fff7ed;
+}
+
+/* Testimonial */
+.testimonial {
+  margin-top: 2rem;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border-left: 4px solid #f97316;
+}
+.testimonial p {
+  font-style: italic;
+  color: #475569;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.testimonial h4 {
+  font-size: 0.8rem;
+  color: #f97316;
+}
+
+/* How It Works Section */
+.how-it-works {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 24px;
+  border: 1px solid #eef2f8;
+}
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+.steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.step {
+  flex: 1;
+  text-align: center;
+  min-width: 150px;
+}
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: #f97316;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 auto 1rem;
+}
+.step h4 {
+  margin-bottom: 0.5rem;
+}
+.step p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Footer */
+footer {
+  background: #1e293b;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .search-container {
+    display: none;
+  }
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .main-container {
+    padding: 2rem 1rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .step {
+    max-width: 250px;
+  }
+  .contact-card {
+    position: static;
+  }
+  .coming-soon-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-icons span {
+    display: none;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Modal -->
+<div id="comingSoonModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-icon">
+      <i class="fas fa-rocket"></i>
+    </div>
+    <h2>Coming Soon! 🚀</h2>
+    <p>We're working hard to bring you an amazing selling experience. This feature will be available soon.</p>
+    <p style="font-size: 0.9rem;">In the meantime, fill out the form below and our team will assist you!</p>
+    <button class="modal-close" onclick="closeModal()">Got it, thanks!</button>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img class="logo-img" src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1777714814/ChatGPT_Image_May_2_2026_12_39_53_PM_xjx1rf.png" alt="Logo">
+      <span class="logo-text">Chukua<span>Deal</span></span>
+    </a>
+    
+    <div class="search-container">
+      <form>
+        <input type="text" placeholder="Search products...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    
+    <div class="nav-icons">
+      <a href="helpcenter.html">
+        <i class="fas fa-question-circle"></i> 
+        <span>Help</span>
+      </a>
+      <a href="aboutus.html">
+        <i class="fas fa-info-circle"></i> 
+        <span>About Us</span>
+      </a>
+      <a href="index.html" class="sell-btn"><i class="fas fa-plus-circle"></i> Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <h1>Start Selling on Chukua Deal 🚀</h1>
+  <p>Join thousands of successful sellers and reach millions of buyers across Kenya</p>
+</section>
+
+<div class="main-container">
+  <!-- Coming Soon Banner -->
+  <div class="coming-soon-banner">
+    <i class="fas fa-rocket"></i>
+    <div class="text">
+      <strong>🚀 Selling Feature Coming Soon!</strong>
+      <p>We're building an amazing selling platform for you. While you wait, fill out the form and our team will help you get started.</p>
+    </div>
+    <div class="coming-soon-badge" onclick="openModal()">
+      <i class="fas fa-clock"></i> Coming Soon
+    </div>
+  </div>
+
+  <div class="two-columns">
+    <!-- Left Column - Info & Features -->
+    <div class="left-column">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>10,000+ Active Buyers</h3>
+          <p>Reach a large audience actively looking for products like yours</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Boost Your Sales</h3>
+          <p>Our platform helps you get the best price for your items quickly</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Secure & Safe</h3>
+          <p>Verified sellers and secure transactions for peace of mind</p>
+        </div>
+      </div>
+
+      <div class="stats-section">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h2>10K+</h2>
+            <p>Active Sellers</p>
+          </div>
+          <div class="stat-item">
+            <h2>50K+</h2>
+            <p>Products Sold</p>
+          </div>
+          <div class="stat-item">
+            <h2>98%</h2>
+            <p>Happy Sellers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-it-works">
+        <h2>How It Will Work</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h4>Sign Up</h4>
+            <p>Create your free seller account</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h4>List Items</h4>
+            <p>Upload photos and set your price</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h4>Get Orders</h4>
+            <p>Start receiving buyer inquiries</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h4>Get Paid</h4>
+            <p>Complete sales and earn money</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column - Contact Form -->
+    <div class="right-column">
+      <div class="contact-card">
+        <h2>Get Started Today</h2>
+        <p>Fill in your details and our team will contact you within 24 hours</p>
+        
+        <form id="sellerForm">
+          <div class="form-group">
+            <input type="text" id="sellerName" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="sellerPhone" placeholder="Phone Number" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="sellerEmail" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <select id="businessType">
+              <option value="">Select Business Type</option>
+              <option value="individual">Individual Seller</option>
+              <option value="small_business">Small Business</option>
+              <option value="retailer">Retailer</option>
+              <option value="wholesaler">Wholesaler</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea rows="3" id="sellerMessage" placeholder="What products do you want to sell?"></textarea>
+          </div>
+          
+          <button type="submit" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Submit & Chat on WhatsApp
+          </button>
+          
+          <div class="or-divider">or</div>
+          
+          <button type="button" class="email-btn" id="emailUsBtn">
+            <i class="far fa-envelope"></i> Email Us Instead
+          </button>
+        </form>
+        
+        <div class="testimonial">
+          <p>"Started selling on Chukua Deal 2 months ago. Already sold 50+ items! The platform is amazing and the team is very supportive."</p>
+          <h4>- James Mwangi, Electronics Seller</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Chukua Deal — Kenya's trusted marketplace for quality pre-owned items</p>
+</footer>
+
+<script>
+  // Modal functions
+  const modal = document.getElementById('comingSoonModal');
+  
+  function openModal() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeModal() {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  
+  // Close modal when clicking outside
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  
+  // Handle form submission
+  const sellerForm = document.getElementById('sellerForm');
+  
+  sellerForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('sellerName').value;
+    const phone = document.getElementById('sellerPhone').value;
+    const email = document.getElementById('sellerEmail').value;
+    const businessType = document.getElementById('businessType').value;
+    const message = document.getElementById('sellerMessage').value;
+    
+    if (!phone) {
+      alert('Please enter your phone number');
+      return;
+    }
+    
+    const whatsappMsg = `Hello Chukua Deal! I want to start selling on your platform.%0A%0A📋 SELLER DETAILS:%0A• Name: ${name}%0A• Phone: ${phone}%0A• Email: ${email || 'Not provided'}%0A• Business Type: ${businessType || 'Not specified'}%0A• Products: ${message || 'Not specified'}%0A%0AI'm ready to start selling on Chukua Deal!`;
+    
+    const phoneNumber = '254790617211';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMsg}`;
+    
+    window.open(whatsappUrl, '_blank');
+  });
+  
+  // Email button
+  document.getElementById('emailUsBtn').addEventListener('click', function() {
+    window.location.href = 'mailto:sell@chukudeal.com?subject=I want to sell on Chukua Deal';
+  });
+</script>
+
+</body>
+</html>

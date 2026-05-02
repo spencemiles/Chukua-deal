@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>About Us | Chukua Deal - Kenya's Trusted Second-Hand Marketplace</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fb;
+  color: #1e293b;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ========== ENHANCED LOGO STYLES ========== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-img {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.2);
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.logo-text span {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+.logo-text span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  transition: width 0.3s ease;
+}
+
+.logo:hover .logo-text span::after {
+  width: 100%;
+}
+
+/* Optional: Add a subtle glow effect */
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 100%);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.logo:hover::before {
+  width: 120%;
+  height: 120%;
+}
+
+/* ========== NAVIGATION STYLES ========== */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.nav-links a:hover {
+  color: #f97316;
+}
+.nav-links a.active {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.sell-btn {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+.sell-btn:hover {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/><circle cx="150" cy="120" r="60" fill="rgba(255,255,255,0.02)"/></svg>') repeat;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease;
+}
+.hero h1 i {
+  color: #f97316;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Story Section */
+.story-section {
+  margin-bottom: 4rem;
+}
+.story-grid {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.story-text {
+  flex: 1;
+}
+.story-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+.story-text h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  animation: expandWidth 0.6s ease;
+}
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 60px; }
+}
+.story-text p {
+  color: #64748b;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+.story-image {
+  flex: 1;
+}
+.story-image img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+.story-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Mission & Vision */
+.mission-vision {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
+}
+.mv-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.mv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px -12px rgba(249, 115, 22, 0.2);
+}
+.mv-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
+}
+.mv-card:hover .mv-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+.mv-icon i {
+  font-size: 2.5rem;
+  color: white;
+}
+.mv-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.mv-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Values Section */
+.values-section {
+  background: white;
+  border-radius: 32px;
+  padding: 3rem;
+  margin: 3rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.values-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.value-item {
+  text-align: center;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+}
+.value-item:hover {
+  background: #fff7ed;
+  transform: translateY(-5px);
+}
+.value-icon {
+  width: 60px;
+  height: 60px;
+  background: #fff7ed;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  transition: all 0.3s ease;
+}
+.value-item:hover .value-icon {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  transform: scale(1.1);
+}
+.value-item:hover .value-icon i {
+  color: white;
+}
+.value-icon i {
+  font-size: 1.8rem;
+  color: #f97316;
+  transition: all 0.3s ease;
+}
+.value-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.value-item p {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Stats Section */
+.stats-section {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 32px;
+  padding: 3rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.stats-section h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.stat-item {
+  transition: all 0.3s ease;
+}
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: #f97316;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+.stat-item p {
+  color: #cbd5e1;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-radius: 32px;
+  padding: 3rem;
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.cta-section h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.cta-primary {
+  background: white;
+  color: #f97316;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: #f8fafc;
+}
+.cta-secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.cta-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+  background: #1e293b;
+  color: #cbd5e1;
+  padding: 3rem 2rem 1rem;
+  margin-top: 2rem;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.footer-col h4 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.footer-col p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+.footer-col ul a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: 0.2s;
+}
+.footer-col ul a:hover {
+  color: #f97316;
+  padding-left: 5px;
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.social-links a {
+  color: #cbd5e1;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.social-links a:hover {
+  color: #f97316;
+  transform: translateY(-3px) scale(1.1);
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #334155;
+  font-size: 0.7rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .logo-img {
+    height: 38px;
+  }
+  .logo-text {
+    font-size: 1.3rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .main-container {
+    padding: 2rem 1rem;
+  }
+  .mission-vision {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .story-grid {
+    flex-direction: column;
+  }
+  .values-section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+}
+</style>
+</head>
+<body>
+    <!-- Floating Chat Button -->
+<a href="https://wa.me/254790617211" class="chat-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span>Chat with Agent</span>
+</a>
+
+<style>
+.chat-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-float i {
+  font-size: 20px;
+}
+
+.chat-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+</style>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img class="logo-img" src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1777714814/ChatGPT_Image_May_2_2026_12_39_53_PM_xjx1rf.png" alt="Chukua Deal Logo">
+      <span class="logo-text">Chukua<span>Deal</span></span>
+    </a>
+    
+    <a href="index.html" class="sell-btn"><i class="fas fa-shopping-cart"></i> Shop Now</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>About <i class="fas fa-heart"></i> Chukua Deal</h1>
+    <p>Kenya's most trusted marketplace for quality second-hand items</p>
+  </div>
+</section>
+
+<div class="main-container">
+  <!-- Our Story -->
+  <div class="story-section">
+    <div class="story-grid">
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>Chukua Deal was born from a simple idea: make buying and selling second-hand items easy, safe, and accessible to everyone in Kenya. We saw a gap in the market where people struggled to find quality pre-owned items at fair prices, while sellers had nowhere reliable to list their products.</p>
+        <p>Starting in 2022, we built Chukua Deal to connect buyers and sellers in a transparent, trustworthy environment. Today, we're proud to be one of Kenya's fastest-growing second-hand marketplaces, with thousands of successful transactions and happy customers across the country.</p>
+        <p>Our journey is just beginning, and we're committed to continuously improving our platform to serve you better.</p>
+      </div>
+      <div class="story-image">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1777745428/ChatGPT_Image_May_2_2026_09_08_09_PM_nofinl.png" alt="Our Team">
+      </div>
+    </div>
+  </div>
+
+  <!-- Mission & Vision -->
+  <div class="mission-vision">
+    <div class="mv-card">
+      <div class="mv-icon">
+        <i class="fas fa-bullseye"></i>
+      </div>
+      <h3>Our Mission</h3>
+      <p>To empower Kenyans to buy and sell quality second-hand items easily, affordably, and safely, while promoting sustainable consumption and reducing waste.</p>
+    </div>
+    <div class="mv-card">
+      <div class="mv-icon">
+        <i class="fas fa-eye"></i>
+      </div>
+      <h3>Our Vision</h3>
+      <p>To become Kenya's most trusted and go-to marketplace for second-hand goods, creating a circular economy that benefits both people and the planet.</p>
+    </div>
+  </div>
+
+  <!-- Our Values -->
+  <div class="values-section">
+    <h2>Our Core Values</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h4>Trust & Transparency</h4>
+        <p>We believe in honest transactions and clear communication between buyers and sellers.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <h4>Customer First</h4>
+        <p>Our users are at the heart of everything we do. We're here to serve you.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h4>Sustainability</h4>
+        <p>Promoting reuse and reducing waste for a greener Kenya.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h4>Innovation</h4>
+        <p>Continuously improving our platform to meet your needs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-section">
+    <h2>Chukua Deal by the Numbers</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>10K+</h3>
+        <p>Active Users</p>
+      </div>
+      <div class="stat-item">
+        <h3>25K+</h3>
+        <p>Items Sold</p>
+      </div>
+      <div class="stat-item">
+        <h3>98%</h3>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Daily Listings</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Join the Chukua Deal Community</h2>
+    <p>Whether you're buying or selling, we're here to help you succeed</p>
+    <div class="cta-buttons">
+      <a href="#" class="cta-primary">Start Shopping</a>
+      <a href="#" class="cta-secondary">Become a Seller</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4><i class="fas fa-boxes"></i> Chukua Deal</h4>
+      <p>Kenya's trusted marketplace for quality second-hand items. Buy and sell with confidence.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Latest Deals</a></li>
+        <li><a href="#">How it Works</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Report an Issue</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><i class="fas fa-envelope"></i> spencemiles0@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +254 790617211</li>
+        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Chukua Deal. All rights reserved. Kenya's #1 Second-Hand Marketplace.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Chukua Deal | Buy & Sell in Kenya</title>
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dekdxx6yx/image/upload/v1777714814/ChatGPT_Image_May_2_2026_12_39_53_PM_xjx1rf.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f6;
+      color: #212529;
+    }
+
+    /* ========== JIJI STYLE NAVBAR ========== */
+    .top-bar {
+      background: #1e293b;
+      color: white;
+      padding: 0.5rem 2rem;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .top-bar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .logo-img {
+      height: 40px;
+      width: auto;
+    }
+    .logo-text {
+      background: linear-gradient(135deg, #0f172a, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo-text span {
+      color: #f97316;
+      background: none;
+    }
+
+    .sell-btn {
+      background: #f97316;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sell-btn:hover {
+      background: #ea580c;
+    }
+
+    /* Search Bar - Jiji Style */
+    .search-container {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+    .search-container form {
+      display: flex;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+    .search-container form:focus-within {
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+    }
+    .search-container input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: none;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .search-container button {
+      background: none;
+      border: none;
+      padding: 0 1.2rem;
+      color: #f97316;
+      cursor: pointer;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav-icons a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .nav-icons i {
+      font-size: 1.2rem;
+    }
+
+    /* ========== CATEGORY STRIP ========== */
+    .category-strip {
+      background: white;
+      border-bottom: 1px solid #e9ecef;
+      padding: 0.5rem 2rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .category-strip::-webkit-scrollbar {
+      display: none;
+    }
+    .category-items {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+    }
+    .category-items a {
+      text-decoration: none;
+      color: #495057;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .category-items a:hover {
+      color: #f97316;
+    }
+    .category-items a.active {
+      color: #f97316;
+      border-bottom: 2px solid #f97316;
+    }
+
+    /* ========== HERO BANNER ========== */
+    .hero-banner {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      margin: 1rem 2rem;
+      border-radius: 16px;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero-banner h2 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-banner p {
+      color: rgba(255,255,255,0.9);
+    }
+    .hero-banner button {
+      background: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      color: #f97316;
+      cursor: pointer;
+    }
+
+    /* ========== MAIN LAYOUT ========== */
+    .main-layout {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* Sidebar - Jiji Style */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+    }
+
+    .filter-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .filter-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f97316;
+      display: inline-block;
+    }
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+    .filter-group label {
+      display: block;
+      font-size: 0.75rem;
+      color: #6c757d;
+      margin-bottom: 0.3rem;
+    }
+    .price-inputs {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .price-inputs input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      font-size: 0.8rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .checkbox-item input {
+      cursor: pointer;
+    }
+    .clear-link {
+      color: #f97316;
+      font-size: 0.7rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+    }
+
+    /* Results Header */
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .results-count {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+    .sort-select {
+      padding: 0.5rem 1rem;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      background: white;
+    }
+
+    /* Product Grid - Jiji Style */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e9ecef;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* FIXED: Image displays in original size, maintains aspect ratio */
+    .product-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 12;
+      object-fit: contain;
+      background: #f8f9fa;
+      display: block;
+    }
+    
+    .product-info {
+      padding: 1rem;
+    }
+    .product-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-price {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #f97316;
+      margin: 0.4rem 0;
+    }
+    .product-location {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+
+    /* Modal Detail View */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.show {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      max-width: 900px;
+      width: 90%;
+      max-height: 85vh;
+      border-radius: 16px;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: sticky;
+      top: 10px;
+      right: 10px;
+      float: right;
+      background: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin: 10px;
+    }
+    .modal-body {
+      padding: 1.5rem;
+    }
+    
+    /* FIXED: Modal image displays in original size */
+    .modal-img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f8f9fa;
+    }
+    
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 1rem 0 0.5rem;
+    }
+    .modal-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #f97316;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* Loading & Empty */
+    .loading-state, .empty-state {
+      text-align: center;
+      padding: 3rem;
+      background: white;
+      border-radius: 12px;
+    }
+    .spinner {
+      border: 3px solid #e9ecef;
+      border-top: 3px solid #f97316;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer {
+      background: #1e293b;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .top-bar { display: none; }
+      .navbar { padding: 0.8rem 1rem; }
+      .main-layout { flex-direction: column; padding: 1rem; }
+      .sidebar { width: 100%; }
+      .hero-banner { margin: 1rem; padding: 1.5rem; text-align: center; }
+      .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+      
+      /* FIXED: Mobile image size */
+      .product-img {
+        aspect-ratio: 4 / 3;
+      }
+      .product-title { font-size: 0.8rem; }
+      .product-price { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+    <section class="loading-section">
+  <style>
+    /* Loading Section Styles */
+    .loading-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Animated Background Particles */
+    .loading-section::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%);
+      animation: rotateBg 20s linear infinite;
+    }
+
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Loader Container */
+    .loader-container {
+      text-align: center;
+      z-index: 1;
+      animation: fadeInScale 0.6s ease;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Animated Rings Container */
+    .ring-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 30px;
+    }
+
+    /* Rotating Rings */
+    .ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid transparent;
+      border-radius: 50%;
+      animation: rotate 2s linear infinite;
+    }
+
+    .ring:nth-child(1) {
+      border-top-color: #f97316;
+      border-bottom-color: #f97316;
+      animation-duration: 1.5s;
+    }
+
+    .ring:nth-child(2) {
+      border-left-color: #ea580c;
+      border-right-color: #ea580c;
+      width: 85%;
+      height: 85%;
+      top: 7.5%;
+      left: 7.5%;
+      animation-duration: 2s;
+      animation-direction: reverse;
+    }
+
+    .ring:nth-child(3) {
+      border-top-color: #fbbf24;
+      border-bottom-color: #fbbf24;
+      width: 65%;
+      height: 65%;
+      top: 17.5%;
+      left: 17.5%;
+      animation-duration: 2.5s;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Logo Center */
+    .logo-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .logo-img {
+      width: 70px;
+      height: auto;
+      animation: logoFloat 2s ease-in-out infinite, logoGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 15px rgba(249,115,22,0.3)); }
+      50% { filter: drop-shadow(0 0 30px rgba(249,115,22,0.6)); }
+    }
+
+    /* Loading Text */
+    .loading-text {
+      margin-top: 30px;
+    }
+
+    .loading-text h3 {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .loading-text h3 span {
+      color: #f97316;
+    }
+
+    .loading-text p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    /* Animated Dots */
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .dots span {
+      width: 8px;
+      height: 8px;
+      background: #f97316;
+      border-radius: 50%;
+      display: inline-block;
+      animation: dotBounce 1.4s ease-in-out infinite;
+    }
+
+    .dots span:nth-child(1) { animation-delay: 0s; }
+    .dots span:nth-child(2) { animation-delay: 0.2s; }
+    .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes dotBounce {
+      0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.3;
+      }
+      40% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 280px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #f97316, #ea580c, #fbbf24);
+      border-radius: 10px;
+      transition: width 0.1s linear;
+    }
+
+    /* Percentage Text */
+    .percentage {
+      margin-top: 15px;
+      color: #f97316;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Loading Message Rotation */
+    .loading-messages {
+      margin-top: 20px;
+      color: #64748b;
+      font-size: 0.8rem;
+      height: 40px;
+    }
+
+    .message {
+      display: none;
+      animation: fadeMessage 0.5s ease;
+    }
+
+    .message.active {
+      display: block;
+    }
+
+    @keyframes fadeMessage {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hide section when done */
+    .loading-section.done {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+  </style>
+
+  <div class="loader-container">
+    <!-- Animated Rings -->
+    <div class="ring-container">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="logo-center">
+        <img class="logo-img" src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1777714814/ChatGPT_Image_May_2_2026_12_39_53_PM_xjx1rf.png" alt="Chukua Deal Logo">
+      </div>
+    </div>
+
+    <!-- Loading Text -->
+    <div class="loading-text">
+      <h3>Chukua<span>Deal</span></h3>
+      <p>Your trusted marketplace</p>
+    </div>
+
+    <!-- Animated Dots -->
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Percentage -->
+    <div class="percentage" id="percentage">0%</div>
+
+    <!-- Rotating Messages -->
+    <div class="loading-messages">
+      <div class="message active" data-msg="Finding best deals... 🔥"></div>
+      <div class="message" data-msg="Connecting to sellers... 🤝"></div>
+      <div class="message" data-msg="Almost ready... ✨"></div>
+      <div class="message" data-msg="Welcome to Chukua Deal! 🚀"></div>
+    </div>
+  </div>
+
+  <script>
+    // 3 SECOND EXACT TIMER
+    const startTime = Date.now();
+    const totalDuration = 5000; // 3 seconds in milliseconds
+    
+    const progressBar = document.getElementById('progressBar');
+    const percentageSpan = document.getElementById('percentage');
+    const messages = document.querySelectorAll('.message');
+    const loadingSection = document.querySelector('.loading-section');
+    
+    let progress = 0;
+    let lastUpdate = 0;
+    
+    function updateProgress() {
+      const elapsed = Date.now() - startTime;
+      progress = Math.min(100, (elapsed / totalDuration) * 100);
+      
+      // Update progress bar and percentage
+      progressBar.style.width = progress + '%';
+      percentageSpan.textContent = Math.floor(progress) + '%';
+      
+      // Change messages at different progress points
+      if (progress >= 25 && progress < 50 && lastUpdate < 25) {
+        messages[0].classList.remove('active');
+        messages[1].classList.add('active');
+        lastUpdate = 25;
+      } else if (progress >= 50 && progress < 75 && lastUpdate < 50) {
+        messages[1].classList.remove('active');
+        messages[2].classList.add('active');
+        lastUpdate = 50;
+      } else if (progress >= 75 && progress < 100 && lastUpdate < 75) {
+        messages[2].classList.remove('active');
+        messages[3].classList.add('active');
+        lastUpdate = 75;
+      }
+      
+      if (progress < 100) {
+        requestAnimationFrame(updateProgress);
+      } else {
+        // COMPLETE - Hide after 3 seconds exactly
+        setTimeout(() => {
+          loadingSection.classList.add('done');
+          setTimeout(() => {
+            loadingSection.style.display = 'none';
+          }, 600);
+        }, 100);
+      }
+    }
+    
+    // Start the animation
+    requestAnimationFrame(updateProgress);
+  </script>
+</section>
+<!-- Floating Chat Button -->
+<a href="https://wa.me/254790617211" class="chat-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span>Chat with Agent</span>
+</a>
+
+<style>
+.chat-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-float i {
+  font-size: 20px;
+}
+
+.chat-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+</style>
+<!-- Top Bar - Jiji Style -->
+<div class="top-bar">
+  <div><a href="helpcenter.html">Help center</a></div>
+  <div>
+    
+
+    TEL.<a href="tel:+254790617211">+254790617211</a>
+  </div>
+</div>
+
+<!-- Main Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo-area">
+      <a href="index.html" class="logo">
+        <img class="logo-img" src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1777714814/ChatGPT_Image_May_2_2026_12_39_53_PM_xjx1rf.png" alt="Logo">
+        <span class="logo-text">Chukua<span>Deal</span></span>
+      </a>
+     <a href="#" class="sell-btn" onclick="this.style.transform='scale(0.98)'; setTimeout(()=>{this.style.transform='';},100); document.getElementById('csModal').style.display='flex'; document.body.style.overflow='hidden'; return false;" style="background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 0.7rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(249,115,22,0.3); cursor: pointer;">
+  <i class="fas fa-plus-circle"></i> 
+  <span>SELL</span>
+</a>
+
+<div id="csModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); backdrop-filter:blur(5px); align-items:center; justify-content:center; z-index:9999;" onclick="if(event.target===this){this.style.display='none'; document.body.style.overflow='';}">
+  <div style="background:white; max-width:400px; width:90%; border-radius:24px; padding:2rem; text-align:center;">
+    <div style="margin-bottom:1rem;">
+  <svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L15 6H9L12 2Z" fill="url(#gradient)"/>
+    <path d="M12 4C8 4 4 8 4 12H8C8 10 10 9 12 9C14 9 16 10 16 12H20C20 8 16 4 12 4Z" fill="url(#gradient)"/>
+    <path d="M5 14L7 16L5 18L3 16L5 14Z" fill="url(#gradient)"/>
+    <path d="M19 14L21 16L19 18L17 16L19 14Z" fill="url(#gradient)"/>
+    <rect x="11" y="12" width="2" height="8" rx="1" fill="url(#gradient)"/>
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#f97316"/>
+        <stop offset="100%" style="stop-color:#ea580c"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
+    <h2 style="margin-bottom:1rem;">Coming Soon!</h2>
+    <p style="margin-bottom:1.5rem; color:#666;">This feature will be available soon.</p>
+    <button style="background:#f97316; color:white; border:none; padding:10px 25px; border-radius:50px; cursor:pointer; font-weight:600;" onclick="document.getElementById('csModal').style.display='none'; document.body.style.overflow='';"><a href="sell.html">learn more</a></button>
+  </div>
+</div>
+
+<script>
+// Add hover effect to the button (optional)
+document.querySelector('.sell-btn').addEventListener('mouseenter', function() {
+  this.style.transform = 'translateY(-3px)';
+  this.style.boxShadow = '0 8px 25px rgba(249,115,22,0.4)';
+});
+document.querySelector('.sell-btn').addEventListener('mouseleave', function() {
+  this.style.transform = 'translateY(0)';
+  this.style.boxShadow = '0 4px 15px rgba(249,115,22,0.3)';
+});
+</script>
+    </div>
+    
+    <div class="search-container">
+      <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="I'm looking for...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    
+   <div class="nav-icons">
+  <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+  <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+</div>
+  </div>
+</nav>
+
+<!-- Hero Banner -->
+<div class="hero-banner">
+  <div>
+   <h2>
+  <i class="fas fa-fire" style="color: #f97316; margin-right: 10px;"></i> 
+  Grab the Best Deals
+  <i class="fas fa-bolt" style="color: #fbbf24; margin-left: 10px;"></i>
+</h2>
+<p>
+  <i class="fas fa-wallet" style="color: #f97316; margin-right: 8px;"></i> 
+  Save more, spend less
+  <i class="fas fa-arrow-trend-down" style="color: #22c55e; margin-left: 8px;"></i>
+</p>
+  
+  </div>
+
+ <a href="aboutus.html" class="hero-btn">Why Choose Us →</a>
+ <style>
+.hero-btn {
+    text-decoration: none;
+    color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+}
+</style>
+</div>
+
+<!-- Main Layout -->
+<div class="main-layout">
+  <!-- Sidebar Filters -->
+  <aside class="sidebar">
+    <div class="filter-card">
+      <h3>Price Range</h3>
+      <div class="price-inputs">
+        <input type="number" id="minPrice" placeholder="Min KSh">
+        <input type="number" id="maxPrice" placeholder="Max KSh">
+      </div>
+      <a href="#" class="clear-link" id="clearPriceBtn">Clear</a>
+    </div>
+    
+    <div class="filter-card">
+      <h3>Condition</h3>
+      <label class="checkbox-item"><input type="checkbox" value="new"> Brand New</label>
+      <label class="checkbox-item"><input type="checkbox" value="used"> Used</label>
+    </div>
+    
+    <div class="filter-card">
+      <h3>Location</h3>
+      <select id="locationFilter" style="width:100%; padding:0.5rem; border-radius:8px; border:1px solid #dee2e6;">
+        <option value="">All Kenya</option>
+        <option value="Nairobi">Nairobi</option>
+        <option value="Mombasa">Mombasa</option>
+        <option value="Kisumu">Kisumu</option>
+        <option value="Nakuru">Nakuru</option>
+        <option value="Eldoret">Eldoret</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="results-header">
+      <div class="results-count" id="resultsCount">Loading...</div>
+      <select id="sortSelect" class="sort-select">
+        <option value="recommended">Recommended</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+      </select>
+    </div>
+    
+    <div id="productsGrid" class="products-grid">
+      <div class="loading-state"><div class="spinner"></div><p>Loading amazing deals...</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Chukua Deal — Kenya's trusted marketplace for quality pre-owned items</p>
+</footer>
+
+<!-- Product Modal -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <div class="modal-body">
+      <img id="modalImg" class="modal-img" src="">
+      <h2 id="modalTitle" class="modal-title"></h2>
+      <div id="modalPrice" class="modal-price"></div>
+      <div id="modalLocation" style="margin:0.5rem 0; color:#6c757d;"></div>
+      <p id="modalDescription" style="margin:1rem 0; line-height:1.6;"></p>
+      <p><strong>Contact:</strong> <span id="modalContact"></span></p>
+      <button id="modalWhatsappBtn" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZGQNUkXaXgXBtnHERzSgTcWp4JtkJlUA",
+    authDomain: "stockyhub.firebaseapp.com",
+    projectId: "stockyhub",
+    storageBucket: "stockyhub.firebasestorage.app",
+    messagingSenderId: "532803501912",
+    appId: "1:532803501912:web:c722bbf263087a164c6f2d"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  let allProducts = [];
+  let filteredProducts = [];
+
+  const productsGrid = document.getElementById("productsGrid");
+  const searchInput = document.getElementById("searchInput");
+  const minPriceInput = document.getElementById("minPrice");
+  const maxPriceInput = document.getElementById("maxPrice");
+  const sortSelect = document.getElementById("sortSelect");
+  const resultsCount = document.getElementById("resultsCount");
+  const locationFilter = document.getElementById("locationFilter");
+  const clearPriceBtn = document.getElementById("clearPriceBtn");
+
+  function escapeHtml(str) {
+    if (!str) return "";
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  function filterAndSort() {
+    let filtered = [...allProducts];
+    
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    if (searchTerm) {
+      filtered = filtered.filter(p => p.title && p.title.toLowerCase().includes(searchTerm));
+    }
+    
+    const minPrice = minPriceInput.value ? Number(minPriceInput.value) : null;
+    const maxPrice = maxPriceInput.value ? Number(maxPriceInput.value) : null;
+    filtered = filtered.filter(p => {
+      const price = Number(p.price);
+      if (minPrice && price < minPrice) return false;
+      if (maxPrice && price > maxPrice) return false;
+      return true;
+    });
+    
+    const location = locationFilter.value;
+    if (location) {
+      filtered = filtered.filter(p => p.location && p.location.toLowerCase().includes(location.toLowerCase()));
+    }
+    
+    const sortBy = sortSelect.value;
+    if (sortBy === "price_asc") {
+      filtered.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (sortBy === "price_desc") {
+      filtered.sort((a, b) => Number(b.price) - Number(a.price));
+    }
+    
+    filteredProducts = filtered;
+    renderProducts();
+  }
+  
+  function renderProducts() {
+    if (!filteredProducts.length) {
+      productsGrid.innerHTML = `<div class="empty-state"><h3>No items found</h3><p>Try adjusting your search or filters</p></div>`;
+      resultsCount.innerText = `0 results`;
+      return;
+    }
+    
+    resultsCount.innerText = `${filteredProducts.length} result${filteredProducts.length !== 1 ? 's' : ''}`;
+    
+    productsGrid.innerHTML = filteredProducts.map(product => `
+      <div class="product-card" data-id="${product.id}">
+        <img class="product-img" src="${product.imageUrl || 'https://placehold.co/400x300?text=No+Image'}" 
+             onerror="this.src='https://placehold.co/400x300?text=📷'"
+             alt="${escapeHtml(product.title)}">
+        <div class="product-info">
+          <div class="product-title">${escapeHtml(product.title)}</div>
+          <div class="product-price">KSh ${Number(product.price).toLocaleString()}</div>
+          <div class="product-location"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(product.location || 'Nairobi')}</div>
+        </div>
+      </div>
+    `).join("");
+    
+    document.querySelectorAll('.product-card').forEach(card => {
+      const id = card.dataset.id;
+      const product = allProducts.find(p => p.id === id);
+      if (product) card.addEventListener("click", () => openModal(product));
+    });
+  }
+  
+  function clearFilters() {
+    searchInput.value = "";
+    minPriceInput.value = "";
+    maxPriceInput.value = "";
+    locationFilter.value = "";
+    sortSelect.value = "recommended";
+    filterAndSort();
+  }
+  
+  clearPriceBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    minPriceInput.value = "";
+    maxPriceInput.value = "";
+    filterAndSort();
+  });
+  
+  // Modal functions
+  const modal = document.getElementById("productModal");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  
+  function openModal(product) {
+    document.getElementById("modalImg").src = product.imageUrl || "https://placehold.co/600x400?text=Product";
+    document.getElementById("modalTitle").innerText = product.title;
+    document.getElementById("modalPrice").innerHTML = `KSh ${Number(product.price).toLocaleString()}`;
+    document.getElementById("modalLocation").innerHTML = `<i class="fas fa-map-marker-alt"></i> ${product.location || 'Nairobi, Kenya'}`;
+    document.getElementById("modalDescription").innerText = product.description || "No description available.";
+    const contact = product.sellerContact || product.contact || "+254700000000";
+    document.getElementById("modalContact").innerHTML = contact;
+    
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+    whatsappBtn.onclick = () => {
+      const phone = contact.replace(/\D/g, '');
+      window.open(`https://wa.me/${phone}?text=Hi! I'm interested in "${product.title}" from Chukua Deal.`, "_blank");
+    };
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+  
+  function closeModal() {
+    modal.classList.remove("show");
+    document.body.style.overflow = "";
+  }
+  
+  modalCloseBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+  
+  // Event listeners
+  searchInput.addEventListener("input", filterAndSort);
+  minPriceInput.addEventListener("input", filterAndSort);
+  maxPriceInput.addEventListener("input", filterAndSort);
+  sortSelect.addEventListener("change", filterAndSort);
+  locationFilter.addEventListener("change", filterAndSort);
+  document.getElementById("searchForm").addEventListener("submit", (e) => e.preventDefault());
+  
+  async function fetchProducts() {
+    try {
+      const snapshot = await getDocs(collection(db, "promotions"));
+      allProducts = [];
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        allProducts.push({
+          id: doc.id,
+          title: data.title,
+          description: data.description,
+          price: data.price,
+          location: data.location,
+          imageUrl: data.imageUrl,
+          sellerContact: data.sellerContact || data.contact,
+          contact: data.contact
+        });
+      });
+      filterAndSort();
+    } catch (error) {
+      productsGrid.innerHTML = `<div class="empty-state"><h3>Error loading deals</h3><p>Please refresh the page</p></div>`;
+    }
+  }
+  
+  fetchProducts();
+</script>
+</body>
+</html>
