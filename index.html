@@ -186,6 +186,11 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      cursor: pointer;
+    }
+    .category-items a.active, .category-items a:hover {
+      color: #f97316;
+      border-bottom: 2px solid #f97316;
     }
 
     /* ========== HERO BANNER (fluid) ========== */
@@ -306,6 +311,21 @@
       font-size: 0.8rem;
       background: white;
     }
+
+    /* Category badge */
+    .category-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.6rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .category-badge.promotions { background: #fef3c7; color: #d97706; }
+    .category-badge.vehicles { background: #dbeafe; color: #2563eb; }
+    .category-badge.electronics { background: #dcfce7; color: #16a34a; }
+    .category-badge.fashion { background: #fce7f3; color: #db2777; }
+    .category-badge.furniture { background: #e0e7ff; color: #4f46e5; }
 
     /* ========== PRODUCT GRID (fully responsive fluid grid) ========== */
     .products-grid {
@@ -560,12 +580,6 @@
       }
     }
 
-    /* csModal styles */
-    #csModal > div {
-      max-width: 90%;
-      width: 380px;
-      margin: 1rem;
-    }
     .spinner {
       border: 3px solid #e9ecef;
       border-top: 3px solid #f97316;
@@ -580,7 +594,7 @@
 </head>
 <body>
 
-<!-- Loading Section (exactly 5 secs then disappears) -->
+<!-- Loading Section -->
 <section class="loading-section" id="loadingSection">
   <style>
     .loading-section {
@@ -653,8 +667,7 @@
 </section>
 
 <!-- Top Bar -->
- 
-<div class="top-bar"><div><a href="#">Help center</a><a href="tel:+254790617211">+254790617211</a></div></div>
+<div class="top-bar"><div><a href="helpcenter.html">Help center</a><a href="tel:+254790617211">+254790617211</a></div></div>
 
 <!-- Navbar -->
 <nav class="navbar"><div class="nav-container">
@@ -662,11 +675,20 @@
     <a href="#" class="sell-btn" id="sellBtnNav"><i class="fas fa-plus-circle"></i> <span>SELL</span></a>
   </div>
   <div class="search-container"><form id="searchForm"><input type="text" id="searchInput" placeholder="I'm looking for..."><button type="submit"><i class="fas fa-search"></i></button></form></div>
-  <div class="nav-icons"><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a><a href="#" target="_blank"><i class="fab fa-instagram"></i></a><a href="#" target="_blank"><i class="fab fa-telegram"></i></a><a href="#" target="_blank"><i class="fab fa-twitter"></i></a><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></div>
+  <div class="nav-icons"><a href="https://chat.whatsapp.com/CblZntqh6bG60w2fiwvHSe?mode=gi_t" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a><a href="#" target="_blank"><i class="fab fa-instagram"></i></a><a href="#" target="_blank"><i class="fab fa-telegram"></i></a><a href="#" target="_blank"><i class="fab fa-twitter"></i></a><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></div>
 </div></nav>
 
 <!-- Category Strip -->
-<!-- <div class="category-strip"><div class="category-items"><a href="#" class="active"><i class="fas fa-mobile-alt"></i> Electronics</a><a href="#"><i class="fas fa-car"></i> Vehicles</a><a href="#"><i class="fas fa-tshirt"></i> Fashion</a><a href="#"><i class="fas fa-home"></i> Property</a><a href="#"><i class="fas fa-couch"></i> Furniture</a><a href="#"><i class="fas fa-dumbbell"></i> Sports</a></div></div> -->
+<div class="category-strip">
+  <div class="category-items">
+    <a data-category="all" class="active"><i class="fas fa-layer-group"></i> All</a>
+    <a data-category="promotions"><i class="fas fa-tag"></i> Promotions</a>
+    <a data-category="vehicles"><i class="fas fa-car"></i> Vehicles</a>
+    <a data-category="electronics"><i class="fas fa-microchip"></i> Electronics</a>
+    <a data-category="fashion"><i class="fas fa-shirt"></i> Fashion</a>
+    <a data-category="furniture"><i class="fas fa-couch"></i> Furniture</a>
+  </div>
+</div>
 
 <!-- Hero Banner -->
 <div class="hero-banner"><div><h2><i class="fas fa-fire"></i> Grab the Best Deals <i class="fas fa-bolt"></i></h2><p><i class="fas fa-wallet"></i> Save more, spend less</p></div><a href="#" class="hero-btn">Why Choose Us →</a></div>
@@ -675,7 +697,6 @@
 <div class="main-layout">
   <aside class="sidebar">
     <div class="filter-card"><h3>Price Range</h3><div class="price-inputs"><input type="number" id="minPrice" placeholder="Min KSh"><input type="number" id="maxPrice" placeholder="Max KSh"></div><a href="#" class="clear-link" id="clearPriceBtn">Clear</a></div>
-    <div class="filter-card"><h3>Condition</h3><label class="checkbox-item"><input type="checkbox" value="new"> Brand New</label><label class="checkbox-item"><input type="checkbox" value="used"> Used</label></div>
     <div class="filter-card"><h3>Location</h3><select id="locationFilter"><option value="">All Kenya</option><option>Nairobi</option><option>Mombasa</option><option>Kisumu</option><option>Nakuru</option><option>Eldoret</option></select></div>
   </aside>
   <div class="content">
@@ -683,7 +704,7 @@
     <div id="productsGrid" class="products-grid"><div class="loading-state"><div class="spinner"></div><p>Loading amazing deals...</p></div></div>
   </div>
 </div>
-<footer><p>© 2025 Chukua Deal — Kenya's trusted marketplace for quality pre-owned items</p></footer>
+<footer><p>© 2026 Chukua Deal — Kenya's trusted marketplace for quality pre-owned items</p></footer>
 
 <!-- Modal -->
 <div id="productModal" class="modal"><div class="modal-content"><button class="modal-close" id="modalCloseBtn">&times;</button><div class="modal-body"><img id="modalImg" class="modal-img"><h2 id="modalTitle" class="modal-title"></h2><div id="modalPrice" class="modal-price"></div><div id="modalLocation"></div><p id="modalDescription" style="margin:1rem 0; line-height:1.5"></p><p><strong>Contact:</strong> <span id="modalContact"></span></p><button id="modalWhatsappBtn" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</button></div></div></div>
@@ -696,29 +717,259 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
   import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
-  const firebaseConfig = { apiKey: "AIzaSyBZGQNUkXaXgXBtnHERzSgTcWp4JtkJlUA", authDomain: "stockyhub.firebaseapp.com", projectId: "stockyhub", storageBucket: "stockyhub.firebasestorage.app", messagingSenderId: "532803501912", appId: "1:532803501912:web:c722bbf263087a164c6f2d" };
+  
+  const firebaseConfig = { 
+    apiKey: "AIzaSyBZGQNUkXaXgXBtnHERzSgTcWp4JtkJlUA", 
+    authDomain: "stockyhub.firebaseapp.com", 
+    projectId: "stockyhub", 
+    storageBucket: "stockyhub.firebasestorage.app", 
+    messagingSenderId: "532803501912", 
+    appId: "1:532803501912:web:c722bbf263087a164c6f2d" 
+  };
+  
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  let allProducts = [], filteredProducts = [];
-  const productsGrid = document.getElementById("productsGrid"), searchInput = document.getElementById("searchInput"), minPriceInput = document.getElementById("minPrice"), maxPriceInput = document.getElementById("maxPrice"), sortSelect = document.getElementById("sortSelect"), resultsCount = document.getElementById("resultsCount"), locationFilter = document.getElementById("locationFilter"), clearPriceBtn = document.getElementById("clearPriceBtn");
-  function escapeHtml(s){ if(!s) return ""; return s.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;});}
-  function filterAndSort(){ let filtered = [...allProducts]; const term = searchInput.value.toLowerCase().trim(); if(term) filtered = filtered.filter(p=> p.title && p.title.toLowerCase().includes(term)); const minP = minPriceInput.value ? Number(minPriceInput.value) : null, maxP = maxPriceInput.value ? Number(maxPriceInput.value) : null; if(minP || maxP) filtered = filtered.filter(p=> { const price = Number(p.price); if(minP && price < minP) return false; if(maxP && price > maxP) return false; return true; }); const loc = locationFilter.value; if(loc) filtered = filtered.filter(p=> p.location && p.location.toLowerCase().includes(loc.toLowerCase())); const sortVal = sortSelect.value; if(sortVal === "price_asc") filtered.sort((a,b)=> Number(a.price)-Number(b.price)); else if(sortVal === "price_desc") filtered.sort((a,b)=> Number(b.price)-Number(a.price)); filteredProducts = filtered; renderProducts();}
-  function renderProducts(){ if(!filteredProducts.length){ productsGrid.innerHTML = `<div class="empty-state"><h3>No items found</h3><p>Try adjusting your search</p></div>`; resultsCount.innerText = `0 results`; return; } resultsCount.innerText = `${filteredProducts.length} result${filteredProducts.length !==1 ? 's' : ''}`; productsGrid.innerHTML = filteredProducts.map(p=> `<div class="product-card" data-id="${p.id}"><img class="product-img" src="${p.imageUrl || 'https://placehold.co/400x300?text=No+Image'}" onerror="this.src='https://placehold.co/400x300?text=📷'"><div class="product-info"><div class="product-title">${escapeHtml(p.title)}</div><div class="product-price">KSh ${Number(p.price).toLocaleString()}</div><div class="product-location"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(p.location || 'Nairobi')}</div></div></div>`).join(""); document.querySelectorAll('.product-card').forEach(card=>{ const id = card.dataset.id; const prod = allProducts.find(p=> p.id === id); if(prod) card.addEventListener("click", ()=> openModal(prod)); });}
-  function openModal(p){ document.getElementById("modalImg").src = p.imageUrl || "https://placehold.co/600x400?text=Product"; document.getElementById("modalTitle").innerText = p.title; document.getElementById("modalPrice").innerHTML = `KSh ${Number(p.price).toLocaleString()}`; document.getElementById("modalLocation").innerHTML = `<i class="fas fa-map-marker-alt"></i> ${p.location || 'Nairobi, Kenya'}`; document.getElementById("modalDescription").innerText = p.description || "No description available."; const contact = p.sellerContact || p.contact || "+254700000000"; document.getElementById("modalContact").innerHTML = contact; const btn = document.getElementById("modalWhatsappBtn"); btn.onclick = ()=>{ const phone = contact.replace(/\D/g,''); window.open(`https://wa.me/${phone}?text=Hi! I'm interested in "${p.title}" from Chukua Deal.`,"_blank"); }; document.getElementById("productModal").classList.add("show"); document.body.style.overflow = "hidden"; }
-  document.getElementById("modalCloseBtn").addEventListener("click", ()=>{ document.getElementById("productModal").classList.remove("show"); document.body.style.overflow = ""; });
-  document.getElementById("productModal").addEventListener("click", (e)=> { if(e.target === document.getElementById("productModal")){ document.getElementById("productModal").classList.remove("show"); document.body.style.overflow=""; } });
-  searchInput.addEventListener("input", filterAndSort); minPriceInput.addEventListener("input", filterAndSort); maxPriceInput.addEventListener("input", filterAndSort); sortSelect.addEventListener("change", filterAndSort); locationFilter.addEventListener("change", filterAndSort); document.getElementById("searchForm").addEventListener("submit", e=> e.preventDefault()); clearPriceBtn.addEventListener("click", e=> { e.preventDefault(); minPriceInput.value = ""; maxPriceInput.value = ""; filterAndSort(); });
-  async function fetchProducts(){ try{ const snap = await getDocs(collection(db, "promotions")); allProducts = []; snap.forEach(doc=>{ const d = doc.data(); allProducts.push({ id: doc.id, title: d.title, description: d.description, price: d.price, location: d.location, imageUrl: d.imageUrl, sellerContact: d.sellerContact || d.contact, contact: d.contact }); }); filterAndSort(); } catch(e){ productsGrid.innerHTML = `<div class="empty-state"><h3>Error loading deals</h3><p>Refresh the page</p></div>`; } }
-  fetchProducts();
-  // loading animation 5 secs
+  
+  let allProducts = [], filteredProducts = [], currentCategory = "all";
+  const productsGrid = document.getElementById("productsGrid");
+  const searchInput = document.getElementById("searchInput");
+  const minPriceInput = document.getElementById("minPrice");
+  const maxPriceInput = document.getElementById("maxPrice");
+  const sortSelect = document.getElementById("sortSelect");
+  const resultsCount = document.getElementById("resultsCount");
+  const locationFilter = document.getElementById("locationFilter");
+  const clearPriceBtn = document.getElementById("clearPriceBtn");
+  
+  // Collection names mapping
+  const collections = [
+    { name: "promotions", label: "Promotions", icon: "fa-tag" },
+    { name: "vehicles", label: "Vehicles", icon: "fa-car" },
+    { name: "electronics", label: "Electronics", icon: "fa-microchip" },
+    { name: "fashion", label: "Fashion", icon: "fa-shirt" },
+    { name: "furniture", label: "Furniture", icon: "fa-couch" }
+  ];
+  
+  function escapeHtml(s) { 
+    if (!s) return ""; 
+    return s.replace(/[&<>]/g, function(m){ 
+      if(m==='&') return '&amp;'; 
+      if(m==='<') return '&lt;'; 
+      if(m==='>') return '&gt;'; 
+      return m;
+    });
+  }
+  
+  function getCategoryBadge(category) {
+    const badges = {
+      promotions: '<span class="category-badge promotions"><i class="fas fa-tag"></i> Promotion</span>',
+      vehicles: '<span class="category-badge vehicles"><i class="fas fa-car"></i> Vehicle</span>',
+      electronics: '<span class="category-badge electronics"><i class="fas fa-microchip"></i> Electronics</span>',
+      fashion: '<span class="category-badge fashion"><i class="fas fa-shirt"></i> Fashion</span>',
+      furniture: '<span class="category-badge furniture"><i class="fas fa-couch"></i> Furniture</span>'
+    };
+    return badges[category] || '';
+  }
+  
+  function filterAndSort() {
+    let filtered = [...allProducts];
+    
+    // Filter by category
+    if (currentCategory !== "all") {
+      filtered = filtered.filter(p => p.category === currentCategory);
+    }
+    
+    // Search filter
+    const term = searchInput.value.toLowerCase().trim();
+    if (term) filtered = filtered.filter(p => p.title && p.title.toLowerCase().includes(term));
+    
+    // Price filter
+    const minP = minPriceInput.value ? Number(minPriceInput.value) : null;
+    const maxP = maxPriceInput.value ? Number(maxPriceInput.value) : null;
+    if (minP || maxP) {
+      filtered = filtered.filter(p => { 
+        const price = Number(p.price); 
+        if (minP && price < minP) return false; 
+        if (maxP && price > maxP) return false; 
+        return true; 
+      });
+    }
+    
+    // Location filter
+    const loc = locationFilter.value;
+    if (loc) filtered = filtered.filter(p => p.location && p.location.toLowerCase().includes(loc.toLowerCase()));
+    
+    // Sorting
+    const sortVal = sortSelect.value;
+    if (sortVal === "price_asc") filtered.sort((a,b) => Number(a.price) - Number(b.price));
+    else if (sortVal === "price_desc") filtered.sort((a,b) => Number(b.price) - Number(a.price));
+    
+    filteredProducts = filtered;
+    renderProducts();
+  }
+  
+  function renderProducts() {
+    if (!filteredProducts.length) {
+      productsGrid.innerHTML = `<div class="empty-state"><h3>No items found</h3><p>Try adjusting your search or category</p></div>`;
+      resultsCount.innerText = `0 results`;
+      return;
+    }
+    
+    resultsCount.innerText = `${filteredProducts.length} result${filteredProducts.length !== 1 ? 's' : ''}`;
+    
+    productsGrid.innerHTML = filteredProducts.map(p => `
+      <div class="product-card" data-id="${p.id}" data-category="${p.category}">
+        <img class="product-img" src="${p.imageUrl || 'https://placehold.co/400x300?text=No+Image'}" onerror="this.src='https://placehold.co/400x300?text=📷'">
+        <div class="product-info">
+          ${getCategoryBadge(p.category)}
+          <div class="product-title">${escapeHtml(p.title)}</div>
+          <div class="product-price">KSh ${Number(p.price).toLocaleString()}</div>
+          <div class="product-location"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(p.location || 'Nairobi')}</div>
+        </div>
+      </div>
+    `).join("");
+    
+    // Add click listeners
+    document.querySelectorAll('.product-card').forEach(card => {
+      const id = card.dataset.id;
+      const prod = allProducts.find(p => p.id === id);
+      if (prod) card.addEventListener("click", () => openModal(prod));
+    });
+  }
+  
+  function openModal(p) {
+    document.getElementById("modalImg").src = p.imageUrl || "https://placehold.co/600x400?text=Product";
+    document.getElementById("modalTitle").innerText = p.title;
+    document.getElementById("modalPrice").innerHTML = `KSh ${Number(p.price).toLocaleString()}`;
+    document.getElementById("modalLocation").innerHTML = `<i class="fas fa-map-marker-alt"></i> ${p.location || 'Nairobi, Kenya'} ${getCategoryBadge(p.category)}`;
+    document.getElementById("modalDescription").innerText = p.description || "No description available.";
+    const contact = p.sellerContact || p.contact || "+254700000000";
+    document.getElementById("modalContact").innerHTML = contact;
+    const btn = document.getElementById("modalWhatsappBtn");
+    btn.onclick = () => {
+      const phone = contact.replace(/\D/g, '');
+      window.open(`https://wa.me/${phone}?text=Hi! I'm interested in "${p.title}" from Chukua Deal.`,"_blank");
+    };
+    document.getElementById("productModal").classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+  
+  // Fetch all products from all collections
+  async function fetchAllProducts() {
+    try {
+      const allItems = [];
+      
+      for (const col of collections) {
+        const querySnapshot = await getDocs(collection(db, col.name));
+        querySnapshot.forEach(doc => {
+          const data = doc.data();
+          // Only add if it has a title and price
+          if (data.title && data.price !== undefined) {
+            allItems.push({
+              id: doc.id,
+              category: col.name,
+              title: data.title,
+              description: data.description || '',
+              price: data.price,
+              location: data.location || 'Nairobi',
+              imageUrl: data.imageUrl,
+              contact: data.contact,
+              sellerContact: data.sellerContact,
+              isActive: data.isActive,
+              isAvailable: data.isAvailable,
+              year: data.year,
+              fuelType: data.fuelType,
+              transmission: data.transmission
+            });
+          }
+        });
+      }
+      
+      allProducts = allItems;
+      filterAndSort();
+    } catch(e) {
+      console.error("Error fetching data:", e);
+      productsGrid.innerHTML = `<div class="empty-state"><h3>Error loading deals</h3><p>Please refresh the page</p></div>`;
+    }
+  }
+  
+  // Category click handlers
+  document.querySelectorAll('.category-items a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.category-items a').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      currentCategory = link.dataset.category;
+      filterAndSort();
+    });
+  });
+  
+  // Event listeners
+  searchInput.addEventListener("input", filterAndSort);
+  minPriceInput.addEventListener("input", filterAndSort);
+  maxPriceInput.addEventListener("input", filterAndSort);
+  sortSelect.addEventListener("change", filterAndSort);
+  locationFilter.addEventListener("change", filterAndSort);
+  document.getElementById("searchForm").addEventListener("submit", e => e.preventDefault());
+  clearPriceBtn.addEventListener("click", e => { 
+    e.preventDefault(); 
+    minPriceInput.value = ""; 
+    maxPriceInput.value = ""; 
+    filterAndSort(); 
+  });
+  
+  document.getElementById("modalCloseBtn").addEventListener("click", () => {
+    document.getElementById("productModal").classList.remove("show");
+    document.body.style.overflow = "";
+  });
+  
+  document.getElementById("productModal").addEventListener("click", (e) => { 
+    if(e.target === document.getElementById("productModal")){
+      document.getElementById("productModal").classList.remove("show");
+      document.body.style.overflow = "";
+    } 
+  });
+  
+  // Start fetching
+  fetchAllProducts();
+  
+  // Loading animation
   const ls = document.getElementById("loadingSection");
   let loadPercent = 0, start = Date.now(), duration = 5000;
   const progBar = document.getElementById("loaderProgress"), percentSpan = document.getElementById("loaderPercent"), msgSpan = document.getElementById("loaderMsg");
-  const messages = ["Finding best deals... 🔥","Connecting to sellers... 🤝","Almost ready... ✨","Welcome to Chukua Deal! 🚀"];
-  function animateLoader(){ const elapsed = Date.now() - start; let p = Math.min(100, (elapsed/duration)*100); progBar.style.width = p+"%"; percentSpan.innerText = Math.floor(p)+"%"; if(p>=25 && p<50) msgSpan.innerText = messages[1]; else if(p>=50 && p<75) msgSpan.innerText = messages[2]; else if(p>=75) msgSpan.innerText = messages[3]; if(p<100) requestAnimationFrame(animateLoader); else { setTimeout(()=>{ ls.classList.add("hide"); setTimeout(()=>{ if(ls) ls.style.display = "none"; }, 500); }, 50); } }
+  const messages = ["Finding best deals... 🔥", "Connecting to sellers... 🤝", "Almost ready... ✨", "Welcome to Chukua Deal! 🚀"];
+  
+  function animateLoader() {
+    const elapsed = Date.now() - start;
+    let p = Math.min(100, (elapsed / duration) * 100);
+    progBar.style.width = p + "%";
+    percentSpan.innerText = Math.floor(p) + "%";
+    if (p >= 25 && p < 50) msgSpan.innerText = messages[1];
+    else if (p >= 50 && p < 75) msgSpan.innerText = messages[2];
+    else if (p >= 75) msgSpan.innerText = messages[3];
+    if (p < 100) requestAnimationFrame(animateLoader);
+    else {
+      setTimeout(() => {
+        ls.classList.add("hide");
+        setTimeout(() => { if(ls) ls.style.display = "none"; }, 500);
+      }, 50);
+    }
+  }
   animateLoader();
-  document.getElementById("sellBtnNav").addEventListener("click", (e)=>{ e.preventDefault(); document.getElementById("csModal").style.display = "flex"; document.body.style.overflow = "hidden"; });
-  window.addEventListener("load", ()=> { setTimeout(()=>{ if(ls && !ls.classList.contains("hide")){ ls.classList.add("hide"); setTimeout(()=>{ if(ls) ls.style.display = "none"; },500); } }, 5200); });
+  
+  document.getElementById("sellBtnNav").addEventListener("click", (e) => { 
+    e.preventDefault(); 
+    document.getElementById("csModal").style.display = "flex"; 
+    document.body.style.overflow = "hidden"; 
+  });
+  
+  window.addEventListener("load", () => { 
+    setTimeout(() => { 
+      if(ls && !ls.classList.contains("hide")){ 
+        ls.classList.add("hide"); 
+        setTimeout(() => { if(ls) ls.style.display = "none"; }, 500);
+      } 
+    }, 5200); 
+  });
 </script>
 </body>
 </html>
